@@ -19,6 +19,12 @@ def goto_dashboard(request):
             Store.objects.order_by("name"),
             owner=request.user.id)
         context = {"stores": stores}
-        return render(request, "dashboard/overview.html", context)
+        return render(request, "registration/home.html", context)
     else:
         return HttpResponseRedirect(reverse("home"))
+
+
+def home(request):
+    stores = get_list_or_404(Store.objects.order_by("name"))
+    context = {"stores": stores}
+    return render(request, "registration/home.html", context)

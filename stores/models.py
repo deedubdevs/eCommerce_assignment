@@ -1,6 +1,7 @@
 from django.db import models
 from users.models import CustomUser
 
+
 class Store(models.Model):
     name = models.CharField(max_length=255)
     owner = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
@@ -23,4 +24,4 @@ class StoreItems(models.Model):
     quantity = models.IntegerField(default=0)
 
     def __str__(self):
-        return self.id
+        return str(self.id)
