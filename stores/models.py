@@ -5,6 +5,7 @@ from users.models import CustomUser
 class Store(models.Model):
     name = models.CharField(max_length=255)
     owner = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='shop', default='<eCommerce>/static/icons/shop.png', blank=True)
 
     def __str__(self):
         return self.name
